@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"time"
 
 	"net/http"
 
@@ -21,6 +22,8 @@ func main() {
 	})
 
 	router.POST("/", func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+		// simulate API calls, etc...
+		time.Sleep(300 * time.Millisecond)
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		w.Write([]byte("{ \"code\":3.14159265359, \"description\":\"HI!\" }"))
 	})
