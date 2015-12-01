@@ -20,6 +20,11 @@ func main() {
 		w.Write([]byte("{ \"code\":3.14159265359, \"description\":\"HI!\" }"))
 	})
 
+	router.POST("/", func(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Write([]byte("{ \"code\":3.14159265359, \"description\":\"HI!\" }"))
+	})
+
 	// Setup Server
 	n := negroni.New()
 	n.Use(negroni.NewRecovery())
